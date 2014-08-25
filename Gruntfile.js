@@ -2,6 +2,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    clean: {
+      css: ["client/*.css", "client/*.css.map"]
+    },
+
     jshint: {
       files: ['client/**/*.js','server/**/*.js'],
     },
@@ -18,16 +22,26 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['client/**/*', 'server/**/*'],
-        tasks: ['jshint'],
+        tasks: ['build'],
+      },
+    },
+
+    sass: {
+      compile: {
+        files: {
+          'client/app.css': 'client/app.scss',
+        },
       },
     },
 
   });
 
-  // Don't worry about this one - it just works. You'll see when you run `grunt`.
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  //requires ruby: $ gem install sass
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   ////////////////////////////////////////////////////
   // Main grunt tasks
@@ -39,7 +53,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'jshint'
+    'clean',
+    'jshint',
+    'sass'
   ]);
 
 };
