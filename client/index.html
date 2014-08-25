@@ -3,13 +3,15 @@
 <head>
   <title>What Is This Lump?</title>
   <link rel="stylesheet" type="text/css" href="app.css">
-  <script type="text/javascript"></script>
+  <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../database/db.json"></script>
+  <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
   <div id="container">
     <h1>What Is This Lump?</h1>
+    <button class="skip">skip</button>
     <button class="benign">Benign</button>
-    <button class="flag">Flag</button>
     <div class="lump">
       <img class="pic" src="../database/wrist-lump.jpg">
       <div class="description">
@@ -21,8 +23,12 @@
         </ul>
       </div>
     </div>
-    <button class="skip">skip</button>
+    <button class="flag">Flag</button>
     <button class="malignant">Malignant</button>
   </div>
+
+  <hr />
+  <input class="upload" type="file" accept="image/*" capture="camera">
+
 </body>
 </html>

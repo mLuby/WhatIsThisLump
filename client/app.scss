@@ -12,24 +12,24 @@ body {
   text-align: center;
 
   /*User Controls*/
-  .flag {
-    background-color: orange;
+  .skip { // top
+    background-color: blue;
     color: black;
     border: none;
   }
-  .benign {
+  .benign { // left
     background-color: green;
     color: black;
     border: none;
     float: left;
     margin-top: 20%;
   }
-  .skip {
-    background-color: blue;
+  .flag { // bottom
+    background-color: orange;
     color: black;
     border: none;
   }
-  .malignant {
+  .malignant { // right
     background-color: red;
     color: black;
     border: none;

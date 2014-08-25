@@ -1,0 +1,29 @@
+var db = {
+  "lumps": [
+    {
+      "patient": "mary-sue",
+      "src": "finger-lump.jpg",
+      "symptoms": ["painful", "swelling"]
+    },
+    {
+      "patient": "bob",
+      "src": "foot-lump.jpg",
+      "symptoms": ["inflamed", "swelling"]
+    },
+    {
+      "patient": "alice",
+      "src": "knee-lump.jpg",
+      "symptoms": ["painful", "green"]
+    },
+    {
+      "patient": "eve",
+      "src": "neck-lump.jpg",
+      "symptoms": ["infected", "swelling"]
+    },
+    {
+      "patient": "carl",
+      "src": "neck-lump.jpg",
+      "symptoms": ["painful", "gangrenous"]
+    }
+  ]
+}
