@@ -1,0 +1,31 @@
+{
+  "name": "WhatIsThisLump",
+  "version": "0.0.0",
+  "description": "Crowd-source your hypochondria!",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mLuby/2014-07-solo.git"
+  },
+  "keywords": [
+    "medical"
+  ],
+  "author": "Mike Luby <Michael@mLuby.com (http://mLuby.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mLuby/2014-07-solo/issues"
+  },
+  "homepage": "https://github.com/mLuby/2014-07-solo",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-test": "^0.11.0",
+    "grunt-notify": "^0.3.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
