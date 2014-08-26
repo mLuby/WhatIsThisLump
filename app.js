@@ -10,6 +10,9 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         promise: promise,
         push: function(object){
           db.$push(object);
+        },
+        remove: function(object){
+          db.$remove(object.$id);
         },    
         array: function () {
           return promisedData;
@@ -65,14 +68,36 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       };
       $scope.malignant = function(){
         $scope.lump.malignant++;
+        var diagnosis = prompt("Do you know what this lump is?");
+        if(diagnosis){
+          if(!$scope.lump.diagnoses){ $scope.lump.diagnoses = []; }
+          console.log('diagnosis:',diagnosis);
+          $scope.lump.diagnoses.push(diagnosis);
+        }
         lumps.$save($scope.lump);
         $scope.next();
       };
+      $scope.flag = function(){
+        var complaint = prompt("What is wrong with this lump?");
+        if(!$scope.lump.flagged){$scope.lump.flagged = 0;}
+        $scope.lump.flagged++;
+        if(complaint){
+          if(!$scope.lump.complaints){$scope.lump.complaints = [];}
+          $scope.lump.complaints.push(complaint);
+        }
+        lumps.$save($scope.lump).then(function(){
+          if($scope.lump.flagged >= 2){
+            console.log('2 people flagged this lump; removing',$scope.lump.$id);
+            Db.remove($scope.lump);
+          }
+          $scope.next();
+        });
+      }
       $scope.next = function(){
         $location.path('/lumps/random');
       };
   })
-  .controller('CreateCtrl', function($scope, $location, Db, Lumps ) {
+  .controller('CreateCtrl', function($scope, $location, Db ) {
     $scope.create = function(){
       console.log('trying to create lump:');
        var newLump = {
@@ -83,7 +108,7 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         "benign": 0,
         "malignant": 0
       }
-      Db.push(Lumps);
+      Db.push(newLump);
       $location.path('/lumps/random')
     }
-  });
+  }); 
