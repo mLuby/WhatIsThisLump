@@ -1,15 +1,20 @@
-  <a href="#/create/">Post your lump</a>
+  <a href="#/create/"><i class="fa fa-plus"></i> Post your lump</a>
 
-  <div class="button skip fa fa-forward" ng-click="next()">Skip</div>
-  <div class="button malignant fa fa-ambulance" ng-click="malignant()">Malignant</div>
+  <div class="button skip fa fa-forward" ng-click="next()"> Skip</div>
+  <div class="button malignant" ng-click="malignant()">
+    <i class="fa fa-ambulance fa-flip-horizontal"></i>
+    Malignant
+    </div>
   <div class="button benign" ng-click="benign()">
-    <span class="fa-stack fa-lg">
+    <span class="fa-stack">
       <i class="fa fa-ambulance fa-stack-1x"></i>
       <i class="fa fa-ban fa-stack-2x text-danger"></i>
     </span>
     Benign
-  </div>
-  <div class="button flag fa fa-flag" ng-click="flag()">Flag</div>
+    </div>
+  <div class="button flag" ng-click="flag()">
+    <i class="fa fa-flag"></i> Flag
+    </div>
 
   <div class="lump" ng-cloak>
     <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="WhatIsThisLump">Tweet
@@ -19,14 +24,26 @@
       <img class="pic" ng-cloak src="{{ lump.src }}">
     </div>
     <div class="description">
-      <h3 class="patient">{{ lump.patient }} </h3>
-      <p class="symptoms fa fa-stethoscope">"{{ lump.symptoms }}"</p>
-      <ul class="diagnoses">Diagnoses: 
-        <li class="benignCount">Benign: {{lump.benign}}</li>
-        <li class="maligCount">Malignant: {{lump.malignant}}</li> 
-        <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses"><i class="fa fa-user-md"></i>"{{ diagnosis }}?"</li>
+      <h3 class="patient fa fa-user"> {{ lump.patient }}</h3>
+      <p class="symptoms fa fa-stethoscope"> "{{ lump.symptoms }}"</p>
+      <div class="counts">
+        <span class="count">
+          <span class="fa-stack">
+            <i class="fa fa-ambulance fa-stack-1x"></i>
+            <i class="fa fa-ban fa-stack-2x text-danger"></i>
+          </span> 
+          Benign: <span class="benign">{{lump.benign}}</span>
+        </span>
+        <span class="maligCount">
+          <i class="fa fa-ambulance fa-flip-horizontal"></i> 
+          Malignant: <span class="malignant">{{lump.malignant}}</span>
+        </span>
+        </div> 
+      <ul class="diagnoses fa-ul"> Diagnoses: 
+        <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">
+          <span class="fa-li fa fa-user-md"></span> {{ diagnosis }}?
+        </li>
       </ul>
-
     </div>
   </div>
 </div>

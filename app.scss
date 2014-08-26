@@ -1,7 +1,7 @@
 $text: #313131;
 $benign: #A7D100;
 $malignant: #F13709;
-$flag: #FFE6B9;
+$flag: #FFA400;
 $skip: #D3FFFF;
 $background: #FFFFE5;
 $halfButtonWidth: 15em;
@@ -52,15 +52,39 @@ body {
     .benign { // right
     }
     .flag { // bottom
+      i{
+        color: $flag;
+      }
     }
 
     .lump{
       .picContainer{
-        .pic{ height: 400px; width: 400px; overflow: hidden; }
+        .pic{ 
+          height: 400px; 
+          width: 400px; 
+          overflow: hidden;
+          box-shadow: 0 0 10px 1px black; 
+        }
       }
       .description{
-      }
-      .diagnoses{
+        .patient{
+          display: inline; 
+        }
+        p.symptoms{
+          display: inline;
+        }
+        span.benign{
+          color: $benign;
+        }
+        span.malignant{
+          color: $malignant;
+        }
+        .diagnoses{
+          text-align: center;
+          .diagnosis{
+
+          }
+        }
       }
     }
 
@@ -73,8 +97,6 @@ body {
         display: block;
         width: inherit;
         height: $size;
-      }
-      .patient{
       }
     }
   }
