@@ -16,29 +16,26 @@
       <span class="icon fa fa-ambulance fa-flip-horizontal fa-3x"></span>
       <i class="buttonText">Malignant</i>: <span class="malignant">{{lump.malignant}}</span>
     </div>
-
   </div>
-  <!-- <div class="clear"></div> -->
+
   <div class="description">
     <h3 class="patient fa fa-user"> {{ lump.patient }}</h3>
     <p class="symptoms fa fa-stethoscope"> "{{ lump.symptoms }}"</p>
     <ul class="diagnoses fa-ul"> Diagnoses: 
       <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">
-        <span class="fa-li fa fa-user-md"></span> {{ diagnosis }}?
+        <span class="fa-li fa fa-user-md"></span> {{ diagnosis }}
       </li>
     </ul>
   </div>
 </div>
 <nav>
-  <a class="button add" href="#/create/"><i class="fa fa-plus"></i> <i class="buttonText">Post your lump</i></a>
-  <div class="counts">
-  </div> 
-  <div class="button skip fa fa-forward" ng-click="next()"> <i class="buttonText">Skip</i></div>
-  <div class="button flag" ng-click="flag()">
-    <i class="fa fa-flag"></i>
-    <i class="buttonText">Flag</i>
-  </div>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none" data-hashtags="WhatIsThisLump?">Tweet
+  <a class="button add" href="#/create/"><i class="fa fa-plus"></i> <i class="buttonText">Post lump</i></a>
+  <a class="button tweet fa fa-twitter" href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none" data-hashtags="WhatIsThisLump?"> <span class="buttonText">Tweet</span>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </a>
+    </a>
+  <div class="button flag" ng-click="flag()">
+    <i class="fa fa-flag"></i> 
+    <span class="buttonText">Flag</span>
+    </div>
+  <div class="button skip fa fa-forward" ng-click="next()"> <i class="buttonText">Skip</i></div>
 </nav>

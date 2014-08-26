@@ -33,6 +33,7 @@ body {
     text-align: center;
 
     h1{
+      margin-left: 10%;
       margin-top: 0em; 
       span{
         color: $benign;
@@ -46,10 +47,6 @@ body {
     }
 
     // User Controls
-    a.button{
-      color: $text;
-      text-decoration: none;      
-    }
     .buttonText{
       font-style: normal;
       color: $text;
@@ -64,11 +61,10 @@ body {
     span.malignant{
       color: $malignant;
     }
-    .skip.button {
-    }
+
     .malignant.button {
       float: right;
-      margin-top: 2.5em;
+      margin-top: 2.5em; //2.7 is in line w benign.
       span.icon{
         display: block;
         padding-bottom: .5em;
@@ -81,11 +77,37 @@ body {
         display: block;
       }
     }
-    .flag.button {
+    // Nav
+    nav.button{
+      border: thin dotted orange; 
+    }
+    .button.add{
+      color: $benign;
+      text-decoration: none;      
+      float: left;
+      a{
+        color: $text;
+        text-decoration: none; 
+      }
+    }
+    .button.tweet{
+      margin-right: 10%;
+      color: #55ACEE;
+      text-decoration: none;     
+    }
+    .button.flag {
+      margin-right: 6%;
+      display: inline;
       i{
         color: $flag;
       }
     }
+    .button.skip {
+      display: inline;
+      float: right;
+      margin-top: 0.3em; 
+    }
+
 
     // Lump
     .lump{
