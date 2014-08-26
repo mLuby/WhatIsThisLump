@@ -220,11 +220,8 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
     $location.path('/lumps/'+randomLumpId);      
   })
   .controller('LumpCtrl', function($scope, $routeParams, $location, Db) {
-      var lumpId = $routeParams.lumpId
-      // console.log("Displaying lump",lumpId);
-      $scope.lump = {src: "#"};
-
-      $scope.lump = Db.array()[lumpId];
+      var lumps = Db.array();
+      $scope.lump = lumps[ $routeParams.lumpId ];
 
       $scope.benign = function(){
         // increment benign votes.
@@ -236,7 +233,9 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       $scope.malignant = function(){
         console.log("increment malignant votes.");
         $scope.lump.malignant++;
-        // $scope.lump.$save();
+        console.log('presave');
+        lumps.$save($scope.lump);
+        console.log('postsave');
         $scope.next();
       };
       $scope.next = function(){
@@ -265,62 +264,3 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       $location.path('/lumps/random')
     }
   });
-   
-  /*.controller('EditCtrl',
-    function($scope, $location, $routeParams, Projects) {
-      var projectId = $routeParams.projectId,
-          projectIndex;
-   
-      $scope.projects = Projects;
-      projectIndex = $scope.projects.$indexFor(projectId);
-      $scope.project = $scope.projects[projectIndex];
-   
-      $scope.destroy = function() {
-          $scope.projects.$remove($scope.project).then(function(data) {
-              $location.path('/');
-          });
-      };
-   
-      $scope.save = function() {
-          $scope.projects.$save($scope.project).then(function(data) {
-             $location.path('/');
-          });
-      };
-  });
-  */
-
-
-  // FIREBASE
-
-  // var firebaseRef = 'https://firepano.firebaseio.com/';
-  /*
-  function handleImageUpload(event) {
-    console.log('handleImageUpload triggered');
-    var fileToUpload = event.target.files[0];
-    console.log(fileToUpload);
-
-    reader.onload = (function(theFile) {
-      console.log( theFile.target.result; );
-    })();
-
-    console.log(  $(".pic")[0].src );
-    $(".pic")[0].src = theFile.target.result;
-
-  }
-    var reader = new FileReader();
-    reader.onload = (function(theFile) {
-      return function(e) {
-        var filePayload = e.target.result;
-        // Generate a location that can't be guessed using the file's contents and a random number
-        var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
-        var fileToUpload = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
-        // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-        fileToUpload.set(filePayload, function() { 
-          document.getElementById("pic").src = e.target.result;
-          // Update the location bar so the URL can be shared with others
-          window.location.hash = hash;
-        });
-      };
-    })(fileToUpload);
-    reader.readAsDataURL(fileToUpload);
-  */
