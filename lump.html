@@ -1,24 +1,31 @@
-<a href="#/create">Post your lump</a>
+<div data-role="page"> 
+  <div data-role="header">header blah</div> 
+  <div data-role="content">content blah</div> 
+  <div data-role="footer">footer blah</div> 
+</div>
+
+  <a href="#/create/" data-ftrans="slide">Post your lump</a>
 
 
-<div class="button skip" ng-click="next()">Skip</div>
-<div class="button malignant" ng-click="malignant()">Malignant</div>
-<div class="button benign" ng-click="benign()">Benign</div>
-<div class="button flag" ng-click="flag()">Flag</div>
+  <div class="button skip" ng-click="next()">Skip</div>
+  <div class="button malignant" ng-click="malignant()">Malignant</div>
+  <div class="button benign" ng-click="benign()">Benign</div>
+  <div class="button flag" ng-click="flag()">Flag</div>
 
-<div class="lump" ng-cloak>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="WhatIsThisLump">Tweet
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </a>
-  <img class="pic" ng-cloak src="{{ lump.src }}">
-  <div class="description">
-    <h3 class="patient">{{ lump.patient }} </h3>
-    <p class="symptoms">"{{ lump.symptoms }}"</p>
-    <ul class="diagnoses">Diagnoses: 
-      <li class="benignCount">Benign: {{lump.benign}}</li>
-      <li class="maligCount">Malignant: {{lump.malignant}}</li> 
-      <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">"{{ diagnosis }}?"</li>
-    </ul>
+  <div class="lump" ng-cloak>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="WhatIsThisLump">Tweet
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </a>
+    <img class="pic" ng-cloak src="{{ lump.src }}">
+    <div class="description">
+      <h3 class="patient">{{ lump.patient }} </h3>
+      <p class="symptoms">"{{ lump.symptoms }}"</p>
+      <ul class="diagnoses">Diagnoses: 
+        <li class="benignCount">Benign: {{lump.benign}}</li>
+        <li class="maligCount">Malignant: {{lump.malignant}}</li> 
+        <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">"{{ diagnosis }}?"</li>
+      </ul>
 
+    </div>
   </div>
 </div>

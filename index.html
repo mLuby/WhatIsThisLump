@@ -2,22 +2,33 @@
 <html ng-app="WhatIsThisLump">
   <head>
     <title>What Is This Lump?</title>
+    <meta http-equiv="Page-Enter" content="blendtrans(duration=2.0)">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    <link href="transition.min.css" rel="stylesheet" type="text/css"/>
+    <script src="fasw.transitions.min.js"></script>
     <script src="app.js"></script>
+    <script type="text/javascript">
+      (function inittrans(){
+        var params =  //All params are optional, you can just assign {} 
+          { 
+            "navB": "slide reverse", //Effect for navigation button, leave it empty to disable it
+            "but" : true,       //Flag to enable transitions on button, false by default
+            "cBa" : function() { console.log("swiping!"); }  //callback function
+          };
+        new ft(params);
+      })();
+    </script>
     <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
   </head>
   <body>
     <div id="container">
       <h1>What Is This Lump?</h1>
       <div ng-view></div>
-  <!--  <script src="bower_components/angular/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    -->
     </div>
   </body>
 </html>
