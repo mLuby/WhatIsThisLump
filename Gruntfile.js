@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['client/**/*.js','server/**/*.js'],
+      files: ['client/**/*.js','server/**/*.js','!client/bower_components/**/*.js'],
     },
 
     mochaTest: {
@@ -54,8 +54,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean',
-    'jshint',
-    'sass'
+    'jshint'
+    // 'sass'
   ]);
 
 };

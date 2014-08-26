@@ -1,0 +1,7 @@
+<form class="create" ng-controller="lumpCtrl">
+  <label>Image to upload:</label>
+  <input class="pic" type="file" accept="image/*" capture="camera"></input>
+  <input class="patient" type="text" placeholder="Enter your name."></input>
+  <input class="symptoms" type="text" placeholder="List your symptoms seperated by commas."></input>
+  <button class="upload" ng-click="upload()">{{ uploadStatus }}</button>
+</form>

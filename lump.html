@@ -1,0 +1,14 @@
+<div class="button skip" >skip</div>
+<div class="button malignant" ng-click="malignant()">Malignant</div>
+<div class="button benign" ng-click="benign()">Benign</div>
+<div class="button flag" >Flag</div>
+
+<div ng-model="lump" class="lump">
+  <img class="pic" ng-cloak src="{{ lump.src }}">
+  <div class="description">
+    <h3 class="patient"> {{ lump.patient }} </h3>
+    <ul class="symptoms">
+      <li ng-repeat="symptom in lump.symptoms"> {{ symptom }} </li>  
+    </ul>
+  </div>
+</div>
