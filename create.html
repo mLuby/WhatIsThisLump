@@ -1,10 +1,18 @@
-<form ng-controller="CreateCtrl" ng-submit="create()">
-  <!-- <label>Image to upload:</label> -->
-  <!-- <input class="pic" type="file" accept="image/*" capture="camera" ng></input> -->
-  <input type="text" placeholder="Enter your name." ng-model="patient"></input>
-  <input type="text" placeholder="Enter your location (optional)." ng-model="location"></input>
-  <input type="text" placeholder="Describe your symptoms (up to 140 characters)." ng-model="symptoms" maxlength="140"></input>
-  <input type="url" placeholder="Enter image url" ng-model="src"></input>
-  <input type="submit"></input>
-  <a href="#/lumps/random/" data-ftrans="slide">Cancel</a>
-</form>
+<div class="create">
+  <form ng-controller="CreateCtrl" ng-submit="create()">
+
+    <input type="text" placeholder="Enter your name." ng-model="patient"></input>
+    <input type="text" placeholder="Enter your location (optional)." ng-model="location"></input>
+    <input type="text" placeholder="Describe your symptoms (up to 140 characters)." ng-model="symptoms" maxlength="140"></input>
+
+    <label>Take or select an image:</label>
+    <input class="pic fa fa-camera-retro" type="file" accept="image/*" capture="camera" ng></input>
+
+    <label>or upload an image by URL:</label>
+    <input class="fa fa-file-image" type="url" placeholder="Enter image url" ng-model="src"></input>
+
+    <input type="submit"></input>
+
+    <a href="#/lumps/random/">Cancel</a>
+  </form>
+</div> 

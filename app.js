@@ -30,6 +30,15 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
           }
         }
       })
+      .when('/lumps/last', {
+        controller:'GoToLastLumpCtrl',
+        templateUrl:'lump.html',
+        resolve: {
+          'thisCanBeCalledWhatever':function(Db){
+            return Db.promise;
+          }
+        }
+      })
       .when('/lumps/:lumpId', {
         controller:'LumpCtrl',
         templateUrl:'lump.html',
@@ -49,7 +58,7 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         }
       })
       .otherwise({
-        redirectTo:'/lumps/random'
+        redirectTo:'/lumps/0'
       });
   })
   .controller('GoToRandomLumpCtrl', function($scope, $location, Db){
@@ -57,9 +66,16 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
     console.log('There are',Db.array().length,"lumps; going to",randomLumpId,"at random.");
     $location.path('/lumps/'+randomLumpId);      
   })
+  .controller('GoToLastLumpCtrl', function($scope, $location, Db){
+    var lastLumpId = Db.array().length-1;
+    console.log('There are',Db.array().length,"lumps; going to",lastLumpId+".");
+    $location.path('/lumps/'+lastLumpId);      
+  })
   .controller('LumpCtrl', function($scope, $routeParams, $location, Db) {
       var lumps = Db.array();
       $scope.lump = lumps[ $routeParams.lumpId ];
+
+      if(!$scope.lump){$location.path('/InvalidLump');};
 
       $scope.benign = function(){
         $scope.lump.benign++;
@@ -94,7 +110,7 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         });
       }
       $scope.next = function(){
-        $location.path('/lumps/random');
+        $location.path('/lumps/'+(Number($routeParams.lumpId)+1));
       };
   })
   .controller('CreateCtrl', function($scope, $location, Db ) {

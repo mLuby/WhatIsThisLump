@@ -1,29 +1,30 @@
-<div data-role="page"> 
-  <div data-role="header">header blah</div> 
-  <div data-role="content">content blah</div> 
-  <div data-role="footer">footer blah</div> 
-</div>
+  <a href="#/create/">Post your lump</a>
 
-  <a href="#/create/" data-ftrans="slide">Post your lump</a>
-
-
-  <div class="button skip" ng-click="next()">Skip</div>
-  <div class="button malignant" ng-click="malignant()">Malignant</div>
-  <div class="button benign" ng-click="benign()">Benign</div>
-  <div class="button flag" ng-click="flag()">Flag</div>
+  <div class="button skip fa fa-forward" ng-click="next()">Skip</div>
+  <div class="button malignant fa fa-ambulance" ng-click="malignant()">Malignant</div>
+  <div class="button benign" ng-click="benign()">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-ambulance fa-stack-1x"></i>
+      <i class="fa fa-ban fa-stack-2x text-danger"></i>
+    </span>
+    Benign
+  </div>
+  <div class="button flag fa fa-flag" ng-click="flag()">Flag</div>
 
   <div class="lump" ng-cloak>
     <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="WhatIsThisLump">Tweet
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </a>
-    <img class="pic" ng-cloak src="{{ lump.src }}">
+    <div class="picContainer">
+      <img class="pic" ng-cloak src="{{ lump.src }}">
+    </div>
     <div class="description">
       <h3 class="patient">{{ lump.patient }} </h3>
-      <p class="symptoms">"{{ lump.symptoms }}"</p>
+      <p class="symptoms fa fa-stethoscope">"{{ lump.symptoms }}"</p>
       <ul class="diagnoses">Diagnoses: 
         <li class="benignCount">Benign: {{lump.benign}}</li>
         <li class="maligCount">Malignant: {{lump.malignant}}</li> 
-        <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">"{{ diagnosis }}?"</li>
+        <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses"><i class="fa fa-user-md"></i>"{{ diagnosis }}?"</li>
       </ul>
 
     </div>

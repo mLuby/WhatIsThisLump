@@ -6,76 +6,75 @@ $skip: #D3FFFF;
 $background: #FFFFE5;
 $halfButtonWidth: 15em;
 $buttonProtrusion: 5em;
+$size: 32pt;
+
+.fa-ambulance{
+  color: $malignant;
+}
 
 body {
-  color: white;
-  background-color: $background; 
+  color: $text;
+  font-size: $size;
+  background-color: white;
+  font-family: 'Oswald', sans-serif; 
   #container {
-    background-color: $background;
-    width: $halfButtonWidth*2.7;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 
+    h1{
+      margin-top: 0em; 
+      -webkit-touch-callout:none;
+      -webkit-user-select:none;
+      -khtml-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+      -webkit-tap-highlight-color:rgba(0,0,0,0);
+      span{
+        color: green;
+        font-family: 'Gloria Hallelujah', cursive;
+        transition: 1s;
+        &:hover{
+          color: red;
+          transition: color 1s;
+        }
+      }
+    }
+
     /*User Controls*/
     .button{
-      width: 0; 
-      height: 0; 
-      color: white;
-      // box-shadow: 0 0 10px 1px black;
     }
     .skip { // top
-      margin-left: auto;
-      margin-right: auto;
-      border-left: $halfButtonWidth solid transparent;
-      border-right: $halfButtonWidth solid transparent;   
-      border-bottom: $buttonProtrusion solid $skip; 
     }
     .malignant { // left
-      float: left;
-      margin-left: auto; 
-      border-top: $halfButtonWidth solid transparent;
-      border-bottom: $halfButtonWidth solid transparent;   
-      border-right: $buttonProtrusion solid $malignant; 
     }
     .benign { // right
-      float: left;
-      border-top: $halfButtonWidth solid transparent;
-      border-bottom: $halfButtonWidth solid transparent;   
-      border-left: $buttonProtrusion solid $benign; 
     }
     .flag { // bottom
-      clear: both;
-      margin-left: auto;
-      margin-right: auto;
-      border-left: $halfButtonWidth solid transparent;
-      border-right: $halfButtonWidth solid transparent;   
-      border-top: $buttonProtrusion solid $flag; 
     }
 
     .lump{
-      float: left;
-      background-color: $text;
-      // margin-left: auto;
-      // margin-right: auto;
-      width: $halfButtonWidth*2;
-      // height: halfButtonWidth*2;
-      // height: 40%;
-      // border: thin dotted black;
-      img.pic{
-        max-width: 100%;
-        max-height: 70%;
-        overflow: hidden;
+      .picContainer{
+        .pic{ height: 400px; width: 400px; overflow: hidden; }
       }
       .description{
-        max-width: 100%;
-        max-height: 30%;
+      }
+      .diagnoses{
       }
     }
 
     .create{
+      width: 80%;
+      background-color: #DDD;
+      margin-left: auto;
+      margin-top: auto;
+      input{
+        display: block;
+        width: inherit;
+        height: $size;
+      }
       .patient{
-        width: 30em;
       }
     }
   }

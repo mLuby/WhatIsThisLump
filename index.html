@@ -2,32 +2,28 @@
 <html ng-app="WhatIsThisLump">
   <head>
     <title>What Is This Lump?</title>
-    <meta http-equiv="Page-Enter" content="blendtrans(duration=2.0)">
+    <!-- Scripts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
-    <link href="transition.min.css" rel="stylesheet" type="text/css"/>
-    <script src="fasw.transitions.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
+    <script src="http://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+    <script src="http://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
     <script src="app.js"></script>
-    <script type="text/javascript">
-      (function inittrans(){
-        var params =  //All params are optional, you can just assign {} 
-          { 
-            "navB": "slide reverse", //Effect for navigation button, leave it empty to disable it
-            "but" : true,       //Flag to enable transitions on button, false by default
-            "cBa" : function() { console.log("swiping!"); }  //callback function
-          };
-        new ft(params);
-      })();
+    <script>
+      // Prevent iOS scroll-bounce.
+      document.ontouchmove = function(event){ event.preventDefault(); };
     </script>
-    <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.css">
   </head>
   <body>
     <div id="container">
-      <h1>What Is This Lump?</h1>
+      <h1>What is this <span>Lump</span>?</h1>
       <div ng-view></div>
     </div>
   </body>
