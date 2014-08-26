@@ -1,0 +1,105 @@
+.fa-ambulance {
+  color: #F13709; }
+
+html, body {
+  height: 100%; }
+
+body {
+  -webkit-text-size-adjust: 100%;
+  color: #313131;
+  font-size: 32pt;
+  background-color: white;
+  font-family: 'Oswald', sans-serif; }
+  body #container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
+    body #container h1 {
+      margin-left: 10%;
+      margin-top: 0em; }
+      body #container h1 span {
+        color: #A7D100;
+        font-family: 'Gloria Hallelujah', cursive;
+        transition: 1s; }
+        body #container h1 span:hover {
+          color: #F13709;
+          transition: color 1s; }
+    body #container .buttonText {
+      font-style: normal;
+      color: #313131;
+      text-decoration: none; }
+      body #container .buttonText:hover {
+        text-decoration: underline; }
+    body #container span.benign {
+      color: #A7D100; }
+    body #container span.malignant {
+      color: #F13709; }
+    body #container .malignant.button {
+      float: right;
+      margin-top: 2.5em; }
+      body #container .malignant.button span.icon {
+        display: block;
+        padding-bottom: .5em; }
+    body #container .benign.button {
+      float: left; }
+      body #container .benign.button span.icon {
+        margin-top: 0.4em;
+        display: block; }
+    body #container nav.button {
+      border: thin dotted orange; }
+    body #container .button.add {
+      color: #A7D100;
+      text-decoration: none;
+      float: left; }
+      body #container .button.add a {
+        color: #313131;
+        text-decoration: none; }
+    body #container .button.tweet {
+      margin-right: 10%;
+      color: #55ACEE;
+      text-decoration: none; }
+    body #container .button.flag {
+      margin-right: 6%;
+      display: inline; }
+      body #container .button.flag i {
+        color: #FFA400; }
+    body #container .button.skip {
+      display: inline;
+      float: right;
+      margin-top: 0.3em; }
+    body #container .lump .picContainer {
+      margin-top: -1em; }
+      body #container .lump .picContainer .pic {
+        height: 400px;
+        width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 10px 1px black;
+        display: inline; }
+    body #container .lump .description .patient {
+      display: inline; }
+    body #container .lump .description p.symptoms {
+      display: inline; }
+    body #container .lump .description .diagnoses {
+      text-align: center; }
+      body #container .lump .description .diagnoses .diagnosis {
+        display: inline-block;
+        margin-left: 2em; }
+        body #container .lump .description .diagnoses .diagnosis span {
+          margin-top: 6px; }
+    body #container nav {
+      position: relative;
+      bottom: 0px;
+      margin: 1em; }
+    body #container .create {
+      width: 80%;
+      background-color: #DDD;
+      margin-left: auto;
+      margin-top: auto; }
+      body #container .create input {
+        display: block;
+        width: inherit;
+        height: 32pt; }
+
+/*# sourceMappingURL=app.css.map */
+
+/*# sourceMappingURL=app.css.map */
