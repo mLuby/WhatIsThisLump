@@ -1,14 +1,15 @@
 angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
   .value('firebaseURL', 'https://whatisthislump.firebaseio.com/')
-  .factory('Lumps', function($firebase, firebaseURL, $q) {
-    //   var db = $firebase(new Firebase(firebaseURL)).$asObject();
+  .factory('db', function($firebase, firebaseURL){
+    var db = $firebase(new Firebase(firebaseURL+'/lumps'));
+    return db;
+    // .$loaded().then(function(data) {
+    //   console.log("db has lumps", data);
+    // });
     // var getLumps = function() {
     //   var deferred = $q.defer();
 
-    //   db.$loaded().then(function(data) {
-    //     console.log("db has lumps", data.lumps);
     //     deferred.resolve( db.lumps );
-    //   });
 
     //   return deferred.promise;
     // };
@@ -16,7 +17,8 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
     // return {
     //   getLumps: getLumps
     // };
-
+  })
+  .factory('Lumps', function() {
     return [
       {
         "patient": "Bob",
@@ -164,7 +166,6 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       //   "malignant": 0
       // }
     ];
-
   })
   .config(function($routeProvider) {
     console.log('next thing after promise');
@@ -177,7 +178,7 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         controller:'LumpCtrl',
         templateUrl:'lump.html'
       })
-      .when('/lumps/create', {
+      .when('/create/', {
         controller:'CreateCtrl',
         templateUrl:'create.html'
       })
@@ -218,14 +219,23 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         $location.path('/lumps/random');
       };
   })
-  .controller('CreateCtrl', function($scope, $location) {
-    console.log('Creating a lump.');
-    // $scope.save = function() {
-    //     Projects.$add($scope.project).then(function(data) {
-    //         $location.path('/');
-    //     });
-    // };
-  })
+  .controller('CreateCtrl', function($scope, $location, db ) {
+    $scope.create = function(){
+      console.log('trying to create lump:');
+       var newLump = {
+        "patient": $scope.patient,
+        "location": $scope.location,
+        "src": $scope.src,
+        "symptoms": $scope.symptoms,
+        "benign": 0,
+        "malignant": 0
+      }
+      db.$push(newLump).then(function(){
+        console.log('Created',newLump);
+        $location.path('/lumps/random')
+      });    
+    }
+  });
    
   /*.controller('EditCtrl',
     function($scope, $location, $routeParams, Projects) {
