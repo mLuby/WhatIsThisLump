@@ -13,10 +13,20 @@ $size: 32pt;
 }
 
 body {
+  // prevent iOS from resizing font.
+  -webkit-text-size-adjust: 100%;
+
   color: $text;
   font-size: $size;
   background-color: white;
   font-family: 'Oswald', sans-serif; 
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
   #container {
     margin-left: auto;
     margin-right: auto;
@@ -24,46 +34,72 @@ body {
 
     h1{
       margin-top: 0em; 
-      -webkit-touch-callout:none;
-      -webkit-user-select:none;
-      -khtml-user-select:none;
-      -moz-user-select:none;
-      -ms-user-select:none;
-      user-select:none;
-      -webkit-tap-highlight-color:rgba(0,0,0,0);
       span{
-        color: green;
+        color: $benign;
         font-family: 'Gloria Hallelujah', cursive;
         transition: 1s;
         &:hover{
-          color: red;
+          color: $malignant;
           transition: color 1s;
         }
       }
     }
 
-    /*User Controls*/
-    .button{
+    // User Controls
+    a.button{
+      color: $text;
+      text-decoration: none;      
     }
-    .skip { // top
+    .buttonText{
+      font-style: normal;
+      color: $text;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
     }
-    .malignant { // left
+    span.benign{
+      color: $benign;
     }
-    .benign { // right
+    span.malignant{
+      color: $malignant;
     }
-    .flag { // bottom
+    .skip.button {
+    }
+    .malignant.button {
+      float: right;
+      margin-top: 1em;
+      span.icon{
+        display: block;
+        padding-bottom: .5em;
+      }
+    }
+    .benign.button {
+      float: left;
+      span.icon{
+        margin-top: -13px;
+        display: block;
+      }
+    }
+    .flag.button {
       i{
         color: $flag;
       }
     }
+    // .clear{
+    //   clear:both;
+    // }
 
+    // Lump
     .lump{
       .picContainer{
+        margin-top: -1em; 
         .pic{ 
           height: 400px; 
           width: 400px; 
           overflow: hidden;
           box-shadow: 0 0 10px 1px black; 
+          display: inline;
         }
       }
       .description{
@@ -73,12 +109,6 @@ body {
         p.symptoms{
           display: inline;
         }
-        span.benign{
-          color: $benign;
-        }
-        span.malignant{
-          color: $malignant;
-        }
         .diagnoses{
           text-align: center;
           .diagnosis{
@@ -87,6 +117,8 @@ body {
         }
       }
     }
+
+
 
     .create{
       width: 80%;
