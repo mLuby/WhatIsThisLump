@@ -167,13 +167,17 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
   // })
   .service('Db', function($firebase, firebaseURL) {
       var myData = null;
-      var promise = $firebase(new Firebase(firebaseURL+'/lumps')).$asArray().$loaded(function (data) {
+      var db = $firebase(new Firebase(firebaseURL+'/lumps'))
+      var promise = db.$asArray().$loaded(function (data) {
         promisedData = data;
       }, function(err){console.log('error', err);});
       return {
         promise: promise,
+        push: function(object){
+          db.$push(object);
+        },    
         array: function () {
-            return promisedData;
+          return promisedData;
         }
       };
   })
@@ -199,7 +203,12 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       })
       .when('/create/', {
         controller:'CreateCtrl',
-        templateUrl:'create.html'
+        templateUrl:'create.html',
+        resolve: {
+          'thisCanBeCalledWhatever':function(Db){
+            return Db.promise;
+          }
+        }
       })
       .otherwise({
         redirectTo:'/lumps/random'
@@ -241,6 +250,7 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
       };
   })
   .controller('CreateCtrl', function($scope, $location, Db ) {
+    console.log('Db',Db);
     $scope.create = function(){
       console.log('trying to create lump:');
        var newLump = {
@@ -251,10 +261,8 @@ angular.module('WhatIsThisLump', ['ngRoute', 'firebase'])
         "benign": 0,
         "malignant": 0
       }
-      Db.$push(newLump).then(function(){
-        console.log('Created',newLump);
-        $location.path('/lumps/random')
-      });    
+      Db.push(newLump);
+      $location.path('/lumps/random')
     }
   });
    
