@@ -1,18 +1,33 @@
 <div class="create">
   <form ng-controller="CreateCtrl" ng-submit="create()">
 
-    <input type="text" placeholder="Enter your name." ng-model="patient"></input>
-    <input type="text" placeholder="Enter your location (optional)." ng-model="location"></input>
-    <input type="text" placeholder="Describe your symptoms (up to 140 characters)." ng-model="symptoms" maxlength="140"></input>
+    <div class="name">
+      <label>Enter your name:</label>
+      <input type="text" placeholder="Enter your name." ng-model="patient"></input>
+      </div>
 
-    <label>Take or select an image:</label>
-    <input class="pic fa fa-camera-retro" type="file" accept="image/*" capture="camera" ng></input>
+    <div class="location">
+      <label>Where are you located?</label>
+      <input type="text" placeholder="Enter your location (optional)." ng-model="location"></input>
+      </div>
 
-    <label>or upload an image by URL:</label>
-    <input class="fa fa-file-image" type="url" placeholder="Enter image url" ng-model="src"></input>
+    <div class="symptoms">
+      <label>Describe your symptoms:</label>
+      <input type="text" placeholder="Describe your symptoms (up to 140 characters)." ng-model="symptoms" maxlength="140"></input>
+      </div>
 
-    <input type="submit"></input>
+    <div class="picUpload">
+      <label>Take or select an image:</label>
+      <input class="pic" type="file" accept="image/*" capture="camera" ng></input>
+      </div>
 
-    <a href="#/lumps/random/">Cancel</a>
+    <div class="urlUpload">
+      <label>or upload an image by URL:</label>
+      <input type="url" placeholder="Enter image url" ng-model="src"></input>
+      <input type="submit"></input>
+      </div>
+
+    <a class="cancel fa fa-times" href="#/lumps/random/"> <span class="buttonText">Cancel</span></a>
+
   </form>
 </div> 
