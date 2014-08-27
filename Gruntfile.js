@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['client/**/*.js','server/**/*.js','!client/bower_components/**/*.js'],
+      files: ['*.js'],
     },
 
     mochaTest: {
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['client/**/*', 'server/**/*'],
+        files: ['app.scss'],
         tasks: ['build'],
       },
     },
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     sass: {
       compile: {
         files: {
-          'client/app.css': 'client/app.scss',
+          'app.css': 'app.scss',
         },
       },
     },
@@ -53,9 +53,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'clean',
-    'jshint'
-    // 'sass'
+    // 'clean',
+    // 'jshint',
+    'sass'
   ]);
 
 };

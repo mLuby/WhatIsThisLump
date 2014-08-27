@@ -2,22 +2,29 @@
 <html ng-app="WhatIsThisLump">
   <head>
     <title>What Is This Lump?</title>
+    <!-- Scripts -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>
+    <script src="http://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+    <script src="http://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
     <script src="app.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="app.css"> -->
+    <script>
+      // Prevent iOS scroll-bounce.
+      document.ontouchmove = function(event){ event.preventDefault(); };
+    </script>
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.css">
   </head>
   <body>
     <div id="container">
-      <h1>What Is This Lump?</h1>
+      <h1>What is this <span>Lump</span>?</h1>
       <div ng-view></div>
-  <!--  <script src="bower_components/angular/dist/jquery.min.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    -->
     </div>
   </body>
 </html>

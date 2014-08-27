@@ -1,24 +1,42 @@
-<a href="#/create">Post your lump</a>
-
-
-<div class="button skip" ng-click="next()">Skip</div>
-<div class="button malignant" ng-click="malignant()">Malignant</div>
-<div class="button benign" ng-click="benign()">Benign</div>
-<div class="button flag" ng-click="flag()">Flag</div>
 
 <div class="lump" ng-cloak>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="WhatIsThisLump">Tweet
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </a>
-  <img class="pic" ng-cloak src="{{ lump.src }}">
-  <div class="description">
-    <h3 class="patient">{{ lump.patient }} </h3>
-    <p class="symptoms">"{{ lump.symptoms }}"</p>
-    <ul class="diagnoses">Diagnoses: 
-      <li class="benignCount">Benign: {{lump.benign}}</li>
-      <li class="maligCount">Malignant: {{lump.malignant}}</li> 
-      <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">"{{ diagnosis }}?"</li>
-    </ul>
+  <div class="picContainer">
 
+    <div class="button benign" ng-click="benign()">
+      <span class="icon fa-stack fa-3x">
+        <i class="fa fa-ambulance fa-stack-1x"></i>
+        <i class="fa fa-ban fa-stack-2x text-danger"></i>
+      </span> 
+      <i class="buttonText">Benign</i>: <span class="benign">{{lump.benign}}</span>
+    </div>
+
+    <img class="pic" ng-cloak src="{{ lump.src }}">
+
+    <div class="button malignant" ng-click="malignant()">
+      <span class="icon fa fa-ambulance fa-flip-horizontal fa-3x"></span>
+      <i class="buttonText">Malignant</i>: <span class="malignant">{{lump.malignant}}</span>
+    </div>
+  </div>
+
+  <div class="description">
+    <h3 class="patient fa fa-user"> {{ lump.patient }}</h3>
+    <p class="symptoms fa fa-stethoscope"> "{{ lump.symptoms }}"</p>
+    <ul class="diagnoses fa-ul"> Diagnoses: 
+      <li class="diagnosis" ng-repeat="diagnosis in lump.diagnoses">
+        <span class="fa-li fa fa-user-md"></span> {{ diagnosis }}
+      </li>
+    </ul>
   </div>
 </div>
+<div class="push"></div>
+<nav>
+  <a class="button add" href="#/create/"><i class="fa fa-plus"></i> <i class="buttonText">Post lump</i></a>
+  <a class="button tweet fa fa-twitter" href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="none" data-hashtags="WhatIsThisLump?"> <span class="buttonText">Tweet</span>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </a>
+  <div class="button flag" ng-click="flag()">
+    <i class="fa fa-flag"></i> 
+    <span class="buttonText">Flag</span>
+    </div>
+  <div class="button skip fa fa-forward" ng-click="next()"> <i class="buttonText">Skip</i></div>
+</nav>
